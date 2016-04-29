@@ -8,10 +8,12 @@ variable to d3d12.
 
 This requires the wip/scenegraphng branch of qtdeclarative which is
 expected to merge back to dev in time for 5.8.
+See http://code.qt.io/cgit/qt/qtdeclarative.git/log/?h=wip/scenegraphng
 
 Particles are not currently supported. Distance field based text
-rendering is missing as well. Apart from these, the behavior and look
-should be the same.
+rendering is missing as well. qtgraphicaleffects has no effect yet when
+running with D3D hence the background blur is missing. Apart from these,
+the behavior and look should be the same.
 
 Original (slightly out-of-date) readme below.
 ---------------------------------------------------------------------
