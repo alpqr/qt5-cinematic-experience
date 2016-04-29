@@ -1,3 +1,19 @@
+This is a port of the well-known Qt 5 Cinematic Experience demo to
+the upcoming, proof-of-concept Direct3D 12 backend of Qt Quick.
+
+The only real change is the addition of pre-compiled HLSL shaders.
+This way the same application bulild works both with OpenGL and
+when requesting D3D12 via setting the QT_QUICK_BACKEND environment
+variable to d3d12.
+
+This requires the wip/scenegraphng branch of qtdeclarative which is
+expected to merge back to dev in time for 5.8.
+
+Particles are not currently supported. Distance field based text
+rendering is missing as well. Apart from these, the behavior and look
+should be the same.
+
+---------------------------------------------------------------------
 
 INTRO
 ==========
@@ -45,5 +61,5 @@ No attribution required, but feel free to mention us or
 contact info@quitcoding.com
 
 Qt, and the Qt logo are trademarks of Nokia Corporation
-Movie reviews copyright © IMDb.com
+Movie reviews copyright (c) IMDb.com
 DVD cover icons from http://www.iconarchive.com

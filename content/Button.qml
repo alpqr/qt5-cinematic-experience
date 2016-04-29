@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.8
 import QtQuick.Particles 2.0
 
 Item {
@@ -83,7 +83,7 @@ Item {
         property variant source: shaderSource
         property variant source2: shaderSource2
 
-        fragmentShader: "
+        fragmentShader: shaderType === ShaderEffect.GLSL ? "
             uniform sampler2D source;
             uniform sampler2D source2;
             uniform lowp float qt_Opacity;
@@ -92,7 +92,7 @@ Item {
                 lowp vec4 pix = texture2D(source, qt_TexCoord0);
                 lowp vec4 pix2 = texture2D(source2, qt_TexCoord0);
                 gl_FragColor = qt_Opacity * (pix + pix.a * pix2);
-            }"
+            }" : shaderType === ShaderEffect.HLSL ? "qrc:/hlsl/ps_button.cso" : ""
     }
 
     Text {

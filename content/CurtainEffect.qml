@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.8
 
 ShaderEffect {
     id: root
@@ -10,10 +10,9 @@ ShaderEffect {
     property real originalWidth: width
     property real amplitude: 0.10
 
-    anchors.fill: parent
     mesh: Qt.size(1, 80)
 
-    vertexShader: "
+    vertexShader: shaderType === ShaderEffect.GLSL ? "
         attribute highp vec4 qt_Vertex;
         attribute highp vec2 qt_MultiTexCoord0;
         uniform highp mat4 qt_Matrix;
@@ -38,9 +37,9 @@ ShaderEffect {
 
             shade = 0.2 * (2.0 - shade ) * (1.0 - (rightHeight + (leftHeight  - rightHeight) * (1.0 - qt_Vertex.y / originalWidth)) / originalHeight);
         }
-    "
+    " : shaderType === ShaderEffect.HLSL ? "qrc:/hlsl/vs_curtain.cso" : ""
 
-    fragmentShader: "
+    fragmentShader: shaderType === ShaderEffect.GLSL ? "
         varying highp vec2 qt_TexCoord0;
         uniform lowp float qt_Opacity;
         uniform sampler2D source;
@@ -50,5 +49,5 @@ ShaderEffect {
             color.rgb *= 1.0 - shade;
             gl_FragColor = color * qt_Opacity;
         }
-    "
+    " : shaderType === ShaderEffect.HLSL ? "qrc:/hlsl/ps_curtain.cso" : ""
 }

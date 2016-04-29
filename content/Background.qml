@@ -1,11 +1,10 @@
 import QtQuick 2.0
 import QtQuick.Particles 2.0
 
-Rectangle {
+Item {
     id: root
 
     anchors.fill: parent
-    color: "#ffffff"
 
     Image {
         id: backgroundImage
@@ -33,7 +32,7 @@ Rectangle {
             anchors.fill: parent
             emitRate: 4
             lifeSpan: 5000
-            size: 32
+            size: 48
             sizeVariation: 16
         }
     }
