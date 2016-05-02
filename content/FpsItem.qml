@@ -1,5 +1,4 @@
-import QtQuick 2.0
-import Cinematic 1.0
+import QtQuick 2.8 // for RendererInfo
 
 Item {
     id: root
@@ -32,8 +31,6 @@ Item {
         text: root.fps + " fps"
     }
 
-    BackendGetter { id: b; srcItem: root }
-
     Text {
         anchors.left: spinnerImage.left
         anchors.top: fpsText.bottom
@@ -41,7 +38,8 @@ Item {
         style: Text.Outline
         styleColor: "#606060"
         font.pixelSize: 28
-        text: "Running on " + b.backendName
+        property int api: RendererInfo.api
+        text: "Running on " + (api === RendererInfo.OpenGL ? "OpenGL" : (api === RendererInfo.Direct3D12 ? "Direct3D 12" : ""))
     }
 
     Timer {
