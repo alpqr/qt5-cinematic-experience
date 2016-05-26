@@ -68,7 +68,7 @@ Item {
         property real lightPosY: listView.globalLightPosY * heightPortition - heightNorm
         visible: settings.showLighting
 
-        fragmentShader: shaderType === ShaderEffect.GLSL ? "
+        fragmentShader: GraphicsInfo.shaderType === GraphicsInfo.GLSL ? "
             uniform sampler2D source;
             uniform sampler2D srcNmap;
             uniform lowp float qt_Opacity;
@@ -88,6 +88,6 @@ Item {
                 highp vec3 color = diffuse * pix.rgb;
                 gl_FragColor = vec4(color, pix.a) * qt_Opacity;
             }
-        " : shaderType === ShaderEffect.HLSL ? "qrc:/hlsl/ps_lighting.cso" : ""
+        " : GraphicsInfo.shaderType === GraphicsInfo.HLSL ? "qrc:/hlsl/ps_lighting.cso" : ""
     }
 }

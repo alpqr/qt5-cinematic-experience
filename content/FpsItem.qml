@@ -1,4 +1,4 @@
-import QtQuick 2.8 // for RendererInfo
+import QtQuick 2.8 // for GraphicsInfo
 
 Item {
     id: root
@@ -38,8 +38,8 @@ Item {
         style: Text.Outline
         styleColor: "#606060"
         font.pixelSize: 28
-        property int api: RendererInfo.api
-        text: "Running on " + (api === RendererInfo.OpenGL ? "OpenGL" : (api === RendererInfo.Direct3D12 ? "Direct3D 12" : ""))
+        property int api: GraphicsInfo.api
+        text: "Running on " + (api === GraphicsInfo.OpenGL ? "OpenGL" : (api === GraphicsInfo.Direct3D12 ? "Direct3D 12" : ""))
     }
 
     Timer {

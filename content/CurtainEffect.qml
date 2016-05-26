@@ -12,7 +12,7 @@ ShaderEffect {
 
     mesh: Qt.size(1, 80)
 
-    vertexShader: shaderType === ShaderEffect.GLSL ? "
+    vertexShader: GraphicsInfo.shaderType === GraphicsInfo.GLSL ? "
         attribute highp vec4 qt_Vertex;
         attribute highp vec2 qt_MultiTexCoord0;
         uniform highp mat4 qt_Matrix;
@@ -37,9 +37,9 @@ ShaderEffect {
 
             shade = 0.2 * (2.0 - shade ) * (1.0 - (rightHeight + (leftHeight  - rightHeight) * (1.0 - qt_Vertex.y / originalWidth)) / originalHeight);
         }
-    " : shaderType === ShaderEffect.HLSL ? "qrc:/hlsl/vs_curtain.cso" : ""
+    " : GraphicsInfo.shaderType === GraphicsInfo.HLSL ? "qrc:/hlsl/vs_curtain.cso" : ""
 
-    fragmentShader: shaderType === ShaderEffect.GLSL ? "
+    fragmentShader: GraphicsInfo.shaderType === GraphicsInfo.GLSL ? "
         varying highp vec2 qt_TexCoord0;
         uniform lowp float qt_Opacity;
         uniform sampler2D source;
@@ -49,5 +49,5 @@ ShaderEffect {
             color.rgb *= 1.0 - shade;
             gl_FragColor = color * qt_Opacity;
         }
-    " : shaderType === ShaderEffect.HLSL ? "qrc:/hlsl/ps_curtain.cso" : ""
+    " : GraphicsInfo.shaderType === GraphicsInfo.HLSL ? "qrc:/hlsl/ps_curtain.cso" : ""
 }
