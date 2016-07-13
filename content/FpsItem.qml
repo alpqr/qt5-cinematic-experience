@@ -39,7 +39,7 @@ Item {
         styleColor: "#606060"
         font.pixelSize: 28
         property int api: GraphicsInfo.api
-        text: "Running on " + (api === GraphicsInfo.OpenGL ? "OpenGL" : (api === GraphicsInfo.Direct3D12 ? "Direct3D 12" : ""))
+        text: "Running on " + (api === GraphicsInfo.OpenGL ? "OpenGL" : api === GraphicsInfo.Direct3D12 ? "Direct3D 12" : api === GraphicsInfo.Software ? "Software" : "")
     }
 
     Timer {
