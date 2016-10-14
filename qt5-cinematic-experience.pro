@@ -1,4 +1,4 @@
-TARGET = qt5-cinematicdemo
+TARGET = qt5-cinematic-experience
 
 QT += quick
 
