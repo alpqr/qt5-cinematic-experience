@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Particles 2.0
-import QtGraphicalEffects 1.0
+//import QtGraphicalEffects 1.0
 
 Item {
     id: root
@@ -10,7 +10,7 @@ Item {
 
     // Updates the blur shader source, best called right before adding blurAmount
     function scheduleUpdate() {
-        mainContentSource.scheduleUpdate();
+//        mainContentSource.scheduleUpdate();
     }
 
     anchors.fill: parent
@@ -216,7 +216,7 @@ Item {
         }
     }
 
-    FastBlur {
+    /*FastBlur {
         anchors.fill: mainViewArea
         radius: root.blurAmount
         visible: root.blurAmount
@@ -228,5 +228,5 @@ Item {
             live: false
             visible: root.blurAmount
         }
-    }
+    }*/
 }
