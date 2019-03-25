@@ -73,5 +73,11 @@
     <file>hlsl/ps_button.cso</file>
     <file>hlsl/ps_switch.cso</file>
     <file>hlsl/ps_lighting.cso</file>
-  </qresource>
+
+    <file>rhishaders/curtain.vert.qsb</file>
+    <file>rhishaders/curtain.frag.qsb</file>
+    <file>rhishaders/button.frag.qsb</file>
+    <file>rhishaders/switch.frag.qsb</file>
+    <file>rhishaders/lighting.frag.qsb</file>
+</qresource>
 </RCC>
