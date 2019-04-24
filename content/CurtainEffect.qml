@@ -37,7 +37,8 @@ ShaderEffect {
 
             shade = 0.2 * (2.0 - shade ) * (1.0 - (rightHeight + (leftHeight  - rightHeight) * (1.0 - qt_Vertex.y / originalWidth)) / originalHeight);
         }
-    " : GraphicsInfo.shaderType === GraphicsInfo.HLSL ? "qrc:/hlsl/vs_curtain.cso" : ""
+    " : GraphicsInfo.shaderType === GraphicsInfo.HLSL ? "qrc:/hlsl/vs_curtain.cso"
+                                                        : GraphicsInfo.shaderType === GraphicsInfo.RhiShader ? "qrc:/rhishaders/curtain.vert.qsb" : ""
 
     fragmentShader: GraphicsInfo.shaderType === GraphicsInfo.GLSL ? "
         varying highp vec2 qt_TexCoord0;
@@ -49,5 +50,6 @@ ShaderEffect {
             color.rgb *= 1.0 - shade;
             gl_FragColor = color * qt_Opacity;
         }
-    " : GraphicsInfo.shaderType === GraphicsInfo.HLSL ? "qrc:/hlsl/ps_curtain.cso" : ""
+    " : GraphicsInfo.shaderType === GraphicsInfo.HLSL ? "qrc:/hlsl/ps_curtain.cso"
+                                                        : GraphicsInfo.shaderType === GraphicsInfo.RhiShader ? "qrc:/rhishaders/curtain.frag.qsb" : ""
 }

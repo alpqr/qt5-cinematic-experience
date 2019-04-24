@@ -88,6 +88,7 @@ Item {
                 highp vec3 color = diffuse * pix.rgb;
                 gl_FragColor = vec4(color, pix.a) * qt_Opacity;
             }
-        " : GraphicsInfo.shaderType === GraphicsInfo.HLSL ? "qrc:/hlsl/ps_lighting.cso" : ""
+        " : GraphicsInfo.shaderType === GraphicsInfo.HLSL ? "qrc:/hlsl/ps_lighting.cso"
+                                                            : GraphicsInfo.shaderType === GraphicsInfo.RhiShader ? "qrc:/rhishaders/lighting.frag.qsb" : ""
     }
 }
