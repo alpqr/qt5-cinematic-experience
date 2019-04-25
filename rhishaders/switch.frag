@@ -1,6 +1,6 @@
 #version 440
 
-layout(location = 0) in vec2 coord;
+layout(location = 0) in vec2 qt_TexCoord0;
 layout(location = 0) out vec4 fragColor;
 
 layout(std140, binding = 0) uniform buf {
@@ -13,5 +13,5 @@ layout(binding = 2) uniform sampler2D maskSource;
 
 void main()
 {
-    fragColor = texture(source, coord) * texture(maskSource, coord).a * ubuf.qt_Opacity;
+    fragColor = texture(source, qt_TexCoord0) * texture(maskSource, qt_TexCoord0).a * ubuf.qt_Opacity;
 }
