@@ -1,21 +1,15 @@
 This is a port of the well-known Qt 5 Cinematic Experience demo to
-the upcoming, proof-of-concept Direct3D 12 backend of Qt Quick.
+be functional with the QRhi-based rendering path of Qt Quick in
+Qt 5.14. Everything, including shader effects and particles are
+expected to be functional regardless of running on Vulkan, Metal,
+D3D11 or OpenGL.
 
-The only real change is the addition of pre-compiled HLSL shaders.
-This way the same application build works both with OpenGL and
-when requesting D3D12 via setting the QT_QUICK_BACKEND environment
-variable to d3d12.
+It also includes support for the experimental Direct 3D 12 backend
+of Qt 5.8. This is less significant now because that particular
+backend is likely to become deprecated and even removed in Qt 6,
+as it is superseded by the QRhi-based approach.
 
-This requires the wip/scenegraphng branch of qtdeclarative which is
-expected to merge back to dev in time for 5.8.
-See http://code.qt.io/cgit/qt/qtdeclarative.git/log/?h=wip/scenegraphng
-
-Particles are not currently supported. Distance field based text
-rendering is missing as well. qtgraphicaleffects has no effect yet when
-running with D3D hence the background blur is missing. Apart from these,
-the behavior and look should be the same.
-
-Original (slightly out-of-date) readme below.
+Original readme below.
 ---------------------------------------------------------------------
 
 INTRO
