@@ -9,11 +9,16 @@ int main(int argc, char* argv[])
     view.setResizeMode(QQuickView::SizeRootObjectToView);
     view.setSource(QUrl(QStringLiteral("qrc:/main.qml")));
 
-    const QString lowerArgument = QString::fromLatin1(argv[1]).toLower();
-    if (lowerArgument == QLatin1String("--fullscreen")) {
-        view.showFullScreen();
-    } else {
-        view.show();
+    bool fullscreen = false;
+    if (argc > 1) {
+        const QString arg = QString::fromLatin1(argv[1]).toLower();
+        if (arg == QLatin1String("--fullscreen"))
+            fullscreen = true;
     }
+    if (fullscreen)
+        view.showFullScreen();
+    else
+        view.show();
+
     return app.exec();
 }
