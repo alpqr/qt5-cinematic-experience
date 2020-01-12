@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import QtQml 2.15
 
 Item {
     id: root
@@ -31,6 +32,7 @@ Item {
         property: "blurAmount"
         value: 40 * root.opacity
         when: root.isShown
+        restoreMode: Binding.RestoreBinding
     }
 
     ParallelAnimation {
