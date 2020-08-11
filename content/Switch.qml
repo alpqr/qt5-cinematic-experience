@@ -157,15 +157,6 @@ Item {
 
         anchors.fill: switchBackgroundImage
 
-        fragmentShader: GraphicsInfo.shaderType === GraphicsInfo.GLSL ? "
-            varying highp vec2 qt_TexCoord0;
-            uniform highp float qt_Opacity;
-            uniform sampler2D source;
-            uniform sampler2D maskSource;
-            void main(void) {
-                gl_FragColor = texture2D(source, qt_TexCoord0.st) * (texture2D(maskSource, qt_TexCoord0.st).a) * qt_Opacity;
-            }
-        " : GraphicsInfo.shaderType === GraphicsInfo.HLSL ? "qrc:/hlsl/ps_switch.cso"
-                                                            : GraphicsInfo.shaderType === GraphicsInfo.RhiShader ? "qrc:/rhishaders/switch.frag.qsb" : ""
+        fragmentShader: "../rhishaders/switch.frag.qsb"
     }
 }

@@ -83,17 +83,7 @@ Item {
         property variant source: shaderSource
         property variant source2: shaderSource2
 
-        fragmentShader: GraphicsInfo.shaderType === GraphicsInfo.GLSL ? "
-            uniform sampler2D source;
-            uniform sampler2D source2;
-            uniform lowp float qt_Opacity;
-            varying highp vec2 qt_TexCoord0;
-            void main() {
-                lowp vec4 pix = texture2D(source, qt_TexCoord0);
-                lowp vec4 pix2 = texture2D(source2, qt_TexCoord0);
-                gl_FragColor = qt_Opacity * (pix + pix.a * pix2);
-            }" : GraphicsInfo.shaderType === GraphicsInfo.HLSL ? "qrc:/hlsl/ps_button.cso"
-                                                               : GraphicsInfo.shaderType === GraphicsInfo.RhiShader ? "qrc:/rhishaders/button.frag.qsb" : ""
+        fragmentShader: "../rhishaders/button.frag.qsb"
     }
 
     Text {

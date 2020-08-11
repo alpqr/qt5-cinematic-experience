@@ -68,27 +68,6 @@ Item {
         property real lightPosY: listView.globalLightPosY * heightPortition - heightNorm
         visible: settings.showLighting
 
-        fragmentShader: GraphicsInfo.shaderType === GraphicsInfo.GLSL ? "
-            uniform sampler2D source;
-            uniform sampler2D srcNmap;
-            uniform lowp float qt_Opacity;
-            varying highp vec2 qt_TexCoord0;
-            uniform highp float lightPosX;
-            uniform highp float lightPosY;
-            void main() {
-                highp vec4 pix = texture2D(source, qt_TexCoord0.st);
-                highp vec4 pix2 = texture2D(srcNmap, qt_TexCoord0.st);
-                highp vec3 normal = normalize(pix2.rgb * 2.0 - 1.0);
-                highp vec3 light_pos = normalize(vec3(qt_TexCoord0.x - lightPosX, qt_TexCoord0.y - lightPosY, 0.8 ));
-                highp float diffuse = max(dot(normal, light_pos), 0.2);
-
-                // boost a bit
-                diffuse *= 2.5;
-
-                highp vec3 color = diffuse * pix.rgb;
-                gl_FragColor = vec4(color, pix.a) * qt_Opacity;
-            }
-        " : GraphicsInfo.shaderType === GraphicsInfo.HLSL ? "qrc:/hlsl/ps_lighting.cso"
-                                                            : GraphicsInfo.shaderType === GraphicsInfo.RhiShader ? "qrc:/rhishaders/lighting.frag.qsb" : ""
+        fragmentShader: "../rhishaders/lighting.frag.qsb"
     }
 }

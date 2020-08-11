@@ -40,24 +40,20 @@ Item {
         font.pixelSize: 28
         property int api: GraphicsInfo.api
         text: {
-            if (GraphicsInfo.api === GraphicsInfo.OpenGL)
-                "OpenGL";
-            else if (GraphicsInfo.api === GraphicsInfo.Software)
+            if (GraphicsInfo.api === GraphicsInfo.Software)
                 "Software";
-            else if (GraphicsInfo.api === GraphicsInfo.Direct3D12)
-                "D3D12";
             else if (GraphicsInfo.api === GraphicsInfo.OpenVG)
                 "OpenVG";
             else if (GraphicsInfo.api === GraphicsInfo.OpenGLRhi)
-                "OpenGL via QRhi";
+                "OpenGL on QRhi";
             else if (GraphicsInfo.api === GraphicsInfo.Direct3D11Rhi)
-                "D3D11 via QRhi";
+                "D3D11 on QRhi";
             else if (GraphicsInfo.api === GraphicsInfo.VulkanRhi)
-                "Vulkan via QRhi";
+                "Vulkan on QRhi";
             else if (GraphicsInfo.api === GraphicsInfo.MetalRhi)
-                "Metal via QRhi";
+                "Metal on QRhi";
             else if (GraphicsInfo.api === GraphicsInfo.Null)
-                "Null via QRhi";
+                "Null on QRhi";
             else
                 "Unknown API";
         }

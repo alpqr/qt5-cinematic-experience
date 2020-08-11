@@ -68,12 +68,6 @@
     <file>content/images/switch_on.png</file>
     <file>content/images/switch_thumb.png</file>
 
-    <file>hlsl/vs_curtain.cso</file>
-    <file>hlsl/ps_curtain.cso</file>
-    <file>hlsl/ps_button.cso</file>
-    <file>hlsl/ps_switch.cso</file>
-    <file>hlsl/ps_lighting.cso</file>
-
     <file>rhishaders/curtain.vert.qsb</file>
     <file>rhishaders/curtain.frag.qsb</file>
     <file>rhishaders/button.frag.qsb</file>
