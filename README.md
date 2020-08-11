@@ -1,13 +1,13 @@
 This is a port of the well-known Qt 5 Cinematic Experience demo to
-be functional with the QRhi-based rendering path of Qt Quick in
-Qt 5.14. Everything, including shader effects and particles are
-expected to be functional regardless of running on Vulkan, Metal,
-D3D11 or OpenGL.
+Qt 6, the new QRhi-based rendering path of Qt Quick, and CMake.
+Everything, including shader effects and particles are expected to
+be functional regardless of running on Vulkan, Metal, D3D11 or OpenGL.
 
-It also includes support for the experimental Direct 3D 12 backend
-of Qt 5.8. This is less significant now because that particular
-backend is likely to become deprecated and even removed in Qt 6,
-as it is superseded by the QRhi-based approach.
+As Qt 6.0 (dev branch of qtbase, qtdeclarative, qtshadertools) is work
+in progress at the time of writing, there is no guarantee everything will
+work as-is.
+
+
 
 Original readme below.
 ---------------------------------------------------------------------
