@@ -83,7 +83,7 @@ Item {
         property variant source: shaderSource
         property variant source2: shaderSource2
 
-        fragmentShader: "../rhishaders/button.frag.qsb"
+        fragmentShader: "../shaders/button.frag.qsb"
     }
 
     Text {

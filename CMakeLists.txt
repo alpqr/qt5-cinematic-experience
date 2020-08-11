@@ -10,6 +10,7 @@ set(CMAKE_AUTOUIC ON)
 find_package(Qt6 COMPONENTS Core)
 find_package(Qt6 COMPONENTS Gui)
 find_package(Qt6 COMPONENTS Quick)
+find_package(Qt6 COMPONENTS ShaderTools)
 
 add_qt_gui_executable(qt5-cinematic-experience
     main.cpp
@@ -86,11 +87,6 @@ set(cinematic_resource_files
     "content/images/switch_on.png"
     "content/images/switch_thumb.png"
     "main.qml"
-    "rhishaders/button.frag.qsb"
-    "rhishaders/curtain.frag.qsb"
-    "rhishaders/curtain.vert.qsb"
-    "rhishaders/lighting.frag.qsb"
-    "rhishaders/switch.frag.qsb"
 )
 
 qt6_add_resources(qt5-cinematic-experience "cinematic"
@@ -98,4 +94,18 @@ qt6_add_resources(qt5-cinematic-experience "cinematic"
         "/"
     FILES
         ${cinematic_resource_files}
+)
+
+qt6_add_shaders(qt5-cinematic-experience "cinematic-shaders"
+    BATCHABLE
+    PRECOMPILE
+    OPTIMIZED
+    PREFIX
+        "/shaders"
+    FILES
+        "shaders/button.frag"
+        "shaders/curtain.vert"
+        "shaders/curtain.frag"
+        "shaders/lighting.frag"
+        "shaders/switch.frag"
 )

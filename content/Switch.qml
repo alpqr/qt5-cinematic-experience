@@ -157,6 +157,6 @@ Item {
 
         anchors.fill: switchBackgroundImage
 
-        fragmentShader: "../rhishaders/switch.frag.qsb"
+        fragmentShader: "../shaders/switch.frag.qsb"
     }
 }

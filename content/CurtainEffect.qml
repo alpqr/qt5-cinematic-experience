@@ -12,6 +12,6 @@ ShaderEffect {
 
     mesh: Qt.size(1, 80)
 
-    vertexShader: "../rhishaders/curtain.vert.qsb"
-    fragmentShader: "../rhishaders/curtain.frag.qsb"
+    vertexShader: "../shaders/curtain.vert.qsb"
+    fragmentShader: "../shaders/curtain.frag.qsb"
 }

@@ -68,6 +68,6 @@ Item {
         property real lightPosY: listView.globalLightPosY * heightPortition - heightNorm
         visible: settings.showLighting
 
-        fragmentShader: "../rhishaders/lighting.frag.qsb"
+        fragmentShader: "../shaders/lighting.frag.qsb"
     }
 }
