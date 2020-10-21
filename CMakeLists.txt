@@ -12,7 +12,7 @@ find_package(Qt6 COMPONENTS Gui)
 find_package(Qt6 COMPONENTS Quick)
 find_package(Qt6 COMPONENTS ShaderTools)
 
-add_qt_gui_executable(qt5-cinematic-experience
+qt_add_executable(qt5-cinematic-experience
     main.cpp
 )
 target_link_libraries(qt5-cinematic-experience PUBLIC
